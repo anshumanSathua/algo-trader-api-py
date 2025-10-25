@@ -7,4 +7,3 @@ matplotlib
 python-multipart
 jinja2
 aiofiles
-sqlite3-binary
