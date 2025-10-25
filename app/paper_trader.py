@@ -6,6 +6,7 @@ from app.data_fetcher import fetch_historical_data
 from app.strategies.moving_average import moving_average_crossover
 from app.strategies.rsi_strategy import rsi_momentum_strategy
 import logging
+import os
 
 
 logging.basicConfig(level=logging.INFO,
@@ -30,6 +31,7 @@ trader_state = {
 
 
 def ensure_db():
+    os.makedirs(os.path.dirname(DB_PATH), exist_ok=True)
     with _db_init_lock:
         conn = sqlite3.connect(DB_PATH, check_same_thread=False)
         c = conn.cursor()
